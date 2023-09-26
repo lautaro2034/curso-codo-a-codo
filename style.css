@@ -1,0 +1,27 @@
+.nav-link {
+  color: gray;
+}
+.nav-link.active {
+  color: aquamarine;
+}
+.texto {
+  position: absolute;
+  top: 40rem;
+  left: 60%;
+  color: white;
+  text-align: right;
+  padding-right: 10rem;
+}
+.tex {
+  text-align: center;
+  padding-top: 1rem;
+}
+.cajas {
+  padding: 2rem 5rem;
+}
+.buton {
+  width: 500rem;
+}
+.centered-form {
+  margin-top: 5%;
+}
