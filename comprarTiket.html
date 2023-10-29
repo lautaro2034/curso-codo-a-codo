@@ -119,6 +119,7 @@
                 class="form-control"
                 placeholder="nombre"
                 aria-label="nombre"
+                required
               />
             </div>
             <div class="col-12 col-md-6">
@@ -127,6 +128,7 @@
                 class="form-control"
                 placeholder="apellido"
                 aria-label="apellido"
+                required
               />
             </div>
           </div>
@@ -137,45 +139,68 @@
               class="form-control"
               id="correo"
               placeholder="Correo"
+              required
             />
           </div>
-          <div class="row g-3">
-            <div class="col-12 col-md-6">
-              <label for="cantidad" class="form-label">cantidad</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="cantidad"
-                aria-label="cantidad"
-              />
-            </div>
-            <div class="col-12 col-md-6">
-              <label for="categoria" class="form-label text-left"
-                >Categoría</label
-              >
-              <select id="inputState" class="form-select">
-                <option selected>estudiante</option>
-                <option>...</option>
-              </select>
+          <div class="container overflow-hidden">
+            <div class="row gx-5">
+              <div class="col">
+                <div class="p-3">
+                  <label for="cantidad">Cantidad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="cantidad"
+                    aria-label="cantidad"
+                    id="cantidad"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3">
+                  <label for="categoria">Categoría</label>
+                  <select id="categoria" class="form-select" required>
+                    <option value="" disabled selected>
+                      Elige una categoría
+                    </option>
+                    <option>estudiante</option>
+                    <option>Trainee</option>
+                    <option>Junior</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
           <a
-            class="btn btn-primary disabled placeholder col-4"
+            class="btn btn-primary disabled placeholder col-10 text-start"
             aria-disabled="true"
+            style="margin-top: 1rem; margin-bottom: 1rem"
           >
-            <label class="text-start">Total a pagar: $</label>
+            <label class="text-start"
+              >Total a pagar: $<span id="total">0</span></label
+            >
           </a>
-
-          <div class="text-center">
-            <button type="button" class="btn btn-success text-white">
+          <div class="text-center" style="margin-bottom: 1rem">
+            <button
+              type="reset"
+              class="btn btn-success text-white col-5"
+              onclick="borrarCampos()"
+            >
               Borrar
             </button>
-            <button type="button" class="btn btn-success text-white">
+
+            <button
+              type="button"
+              class="btn btn-success text-white col-5"
+              onclick="calcularTotal()"
+            >
               Resumen
             </button>
           </div>
         </form>
       </div>
+      <script src="script.js"></script>
     </main>
     <footer>
       <div
