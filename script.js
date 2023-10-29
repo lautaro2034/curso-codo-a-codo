@@ -17,18 +17,14 @@ function calcularTotal() {
   var categoria = document.getElementById("categoria").value;
 
   // Validación para asegurarse de que todos los campos estén completos
-  if (
-    nombre === "" ||
-    apellido === "" ||
-    correo === "" ||
-    isNaN(cantidad) ||
-    cantidad <= 0 ||
-    categoria === ""
-  ) {
+  if (nombre === "" || apellido === "" || isNaN(cantidad) || cantidad <= 0) {
     alert("Por favor, complete todos los campos antes de calcular el total.");
     return;
   }
-
+  if (!validarEmail(correo)) {
+    alert("Por favor, ingrese un correo válido.");
+    return;
+  }
   // Validación adicional para evitar que se seleccione la opción "Elige una categoría"
   if (categoria === "") {
     alert("Por favor, elija una categoría válida.");
@@ -55,4 +51,9 @@ function calcularTotal() {
 
   // Mostrar el total en el elemento del label
   document.getElementById("total").textContent = totalSinComas;
+}
+function validarEmail(email) {
+  // Expresión regular para verificar si el correo tiene un formato válido
+  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
 }
